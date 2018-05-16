@@ -38,7 +38,7 @@ import retrofit2.Response;
 
 public class OrderDetailActivity extends AppCompatActivity implements View.OnClickListener{
 
-    public TextView tvCategoryname,tvName,tvLocation,tvStartDate,tvEndDate,tvTime,tvFare,tvPhone,tvNotes;
+    public TextView tvEndTime,tvCategoryname,tvName,tvLocation,tvStartDate,tvEndDate,tvTime,tvFare,tvPhone,tvNotes;
     public ImageView imgPicture;
     String pictureImageURL;
     String id_jobs;
@@ -74,6 +74,7 @@ public class OrderDetailActivity extends AppCompatActivity implements View.OnCli
         loading = ProgressDialog.show(mContext, null, "Processing Request..", true, false);
         tvCategoryname = (TextView)findViewById(R.id.tvCategoryname);
         tvName = (TextView)findViewById(R.id.tvName);
+        tvEndTime = (TextView) findViewById(R.id.tvEndTime);
         tvLocation = (TextView)findViewById(R.id.tvLocation);
         tvStartDate = (TextView)findViewById(R.id.tvStartDate);
         tvEndDate = (TextView)findViewById(R.id.tvEndDate);
@@ -118,6 +119,7 @@ public class OrderDetailActivity extends AppCompatActivity implements View.OnCli
                                     String enddate = jsonRESULTS.getJSONObject("jobdata").getString("enddate");
                                     String location = jsonRESULTS.getJSONObject("jobdata").getString("location");
                                     String time = jsonRESULTS.getJSONObject("jobdata").getString("time");
+                                    String endtime = jsonRESULTS.getJSONObject("jobdata").getString("endtime");
                                     String fare = jsonRESULTS.getJSONObject("jobdata").getString("fare");
                                     String notes = jsonRESULTS.getJSONObject("jobdata").getString("notes");
                                     String rate = jsonRESULTS.getJSONObject("jobdata").getString("rate");
@@ -132,7 +134,7 @@ public class OrderDetailActivity extends AppCompatActivity implements View.OnCli
                                         ratingBar.setVisibility(View.GONE);
                                     }
 
-                                    if(status.equals("1")){
+                                    if(status.equals("1") || !id_worker.equals("0")){
                                         btnTake.setVisibility(View.GONE);
                                     }
 
@@ -143,6 +145,7 @@ public class OrderDetailActivity extends AppCompatActivity implements View.OnCli
                                     tvEndDate.setText(enddate);
                                     tvLocation.setText(location);
                                     tvTime.setText(time);
+                                    tvEndTime.setText(endtime);
                                     tvFare.setText(fare);
                                     tvNotes.setText(notes);
                                     pictureImageURL = UtilsApi.UPLOAD_URL + jsonRESULTS.getJSONObject("jobdata").getString("picture");

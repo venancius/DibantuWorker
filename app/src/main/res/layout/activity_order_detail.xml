@@ -81,7 +81,7 @@
                             android:id="@+id/imgName"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:src="@drawable/tmp_logo" />
+                            android:src="@drawable/ic_user" />
 
                         <TextView
                             android:id="@+id/tvName"
@@ -103,7 +103,7 @@
                             android:id="@+id/imgPhone"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:src="@drawable/tmp_logo" />
+                            android:src="@drawable/ic_phone" />
 
                         <TextView
                             android:id="@+id/tvPhone"
@@ -132,7 +132,7 @@
                             android:id="@+id/imgStartDate"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:src="@drawable/tmp_logo" />
+                            android:src="@drawable/ic_date" />
 
                         <TextView
                             android:id="@+id/tvStartDate"
@@ -154,7 +154,7 @@
                             android:id="@+id/imgTime"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:src="@drawable/tmp_logo" />
+                            android:src="@drawable/ic_time" />
 
                         <TextView
                             android:id="@+id/tvTime"
@@ -184,7 +184,7 @@
                             android:id="@+id/imgEndDate"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:src="@drawable/tmp_logo" />
+                            android:src="@drawable/ic_date" />
 
                         <TextView
                             android:id="@+id/tvEndDate"
@@ -203,10 +203,61 @@
                         android:layout_weight="1">
 
                         <ImageView
+                            android:id="@+id/imgEndTime"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_time" />
+
+                        <TextView
+                            android:id="@+id/tvEndTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="20dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_toRightOf="@id/imgEndTime"
+                            android:textColor="#000"
+                            android:fontFamily="sans-serif"/>
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp">
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        >
+
+                        <ImageView
+                            android:id="@+id/imgLocation"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_location" />
+
+                        <TextView
+                            android:id="@+id/tvLocation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="20dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_toRightOf="@id/imgLocation"
+                            android:textColor="#000"
+                            android:fontFamily="sans-serif"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
                             android:id="@+id/imgFare"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:src="@drawable/tmp_logo" />
+                            android:src="@drawable/ic_fare" />
 
                         <TextView
                             android:id="@+id/tvFare"
@@ -222,28 +273,6 @@
                 </LinearLayout>
 
 
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:padding="5dp">
-
-                    <ImageView
-                        android:id="@+id/imgLocation"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/tmp_logo" />
-
-                    <TextView
-                        android:id="@+id/tvLocation"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:minHeight="20dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_toRightOf="@id/imgLocation"
-                        android:textColor="#000"
-                        android:fontFamily="sans-serif"/>
-                </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -255,7 +284,7 @@
                         android:id="@+id/imgNotes"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/tmp_logo" />
+                        android:src="@drawable/ic_note" />
 
                     <TextView
                         android:id="@+id/tvNotes"

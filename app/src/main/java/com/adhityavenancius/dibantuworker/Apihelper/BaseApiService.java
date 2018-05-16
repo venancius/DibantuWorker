@@ -69,7 +69,7 @@ public interface BaseApiService {
 
     @FormUrlEncoded
     @POST("jobs/getlist")
-    Call<ResponseJobs> getJobsRequest(@Field("id_user") String id_user);
+    Call<ResponseJobs> getJobsRequest(@Field("id_worker") String id_user);
 
     @FormUrlEncoded
     @POST("jobs/getsingle")

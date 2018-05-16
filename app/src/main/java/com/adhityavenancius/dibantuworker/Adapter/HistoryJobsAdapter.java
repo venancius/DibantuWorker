@@ -43,7 +43,7 @@ public class HistoryJobsAdapter extends RecyclerView.Adapter<HistoryJobsAdapter.
     public void onBindViewHolder(HistoryjobsHolder holder, int position) {
         final HistoryjobsItem historyjobsitem = historyjobsItemList.get(position);
         holder.categoryname.setText(historyjobsitem.getCategoryname());
-        holder.workername.setText(historyjobsitem.getWorkername());
+        holder.workername.setText(historyjobsitem.getUsername());
         holder.jobs_id.setText(historyjobsitem.getId());
 
         RequestOptions options = new RequestOptions()
@@ -51,7 +51,7 @@ public class HistoryJobsAdapter extends RecyclerView.Adapter<HistoryJobsAdapter.
                 .placeholder(R.mipmap.ic_launcher_round)
                 .error(R.mipmap.ic_launcher_round);
 
-        categoryImageURL = UtilsApi.UPLOAD_URL + historyjobsitem.getWorkerpicture();
+        categoryImageURL = UtilsApi.UPLOAD_URL + historyjobsitem.getUserpicture();
 
         Glide.with(mContext).load(categoryImageURL).apply(options).into(holder.thumbnail);
 //        Glide.with(mContext).load(R.drawable.tmp_logo).into(holder.thumbnail);

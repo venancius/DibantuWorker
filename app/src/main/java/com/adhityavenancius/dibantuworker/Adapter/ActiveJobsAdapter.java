@@ -43,7 +43,7 @@ public class ActiveJobsAdapter extends RecyclerView.Adapter<ActiveJobsAdapter.Ac
     public void onBindViewHolder(ActiveJobsHolder holder, int position) {
         final ActivejobsItem activejobsitem = activejobsItemList.get(position);
         holder.categoryname.setText(activejobsitem.getCategoryname());
-        holder.workername.setText(activejobsitem.getWorkername());
+        holder.workername.setText(activejobsitem.getUsername());
         holder.jobs_id.setText(activejobsitem.getId());
 
         RequestOptions options = new RequestOptions()
@@ -51,7 +51,7 @@ public class ActiveJobsAdapter extends RecyclerView.Adapter<ActiveJobsAdapter.Ac
                 .placeholder(R.mipmap.ic_launcher_round)
                 .error(R.mipmap.ic_launcher_round);
 
-        categoryImageURL = UtilsApi.UPLOAD_URL + activejobsitem.getWorkerpicture();
+        categoryImageURL = UtilsApi.UPLOAD_URL + activejobsitem.getUserpicture();
 
         Glide.with(mContext).load(categoryImageURL).apply(options).into(holder.thumbnail);
 //        Glide.with(mContext).load(R.drawable.tmp_logo).into(holder.thumbnail);

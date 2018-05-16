@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -69,7 +71,7 @@ public class CategoryFragment extends Fragment {
     private Socket mSocket;
     {
         try {
-            mSocket = IO.socket("http://192.168.1.101:3000");
+            mSocket = IO.socket("http://192.168.1.104:3000");
         } catch (URISyntaxException e) {}
     }
 
@@ -104,13 +106,16 @@ public class CategoryFragment extends Fragment {
     private Emitter.Listener onNewJob = new Emitter.Listener() {
         @Override
         public void call(final Object... args) {
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
+            Handler uiThreadHandler = new Handler(Looper.getMainLooper());
+            uiThreadHandler.post(new Runnable()
+            {
+                public void run()
+                {
                     getResultListCategory();
-//                    Toasty.success(mContext,"new job",Toast.LENGTH_SHORT).show();
                 }
-            });
+            } );
+
+
         }
     };
 

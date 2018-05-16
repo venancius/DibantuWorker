@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -25,6 +28,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
@@ -93,7 +97,8 @@ public class ProfileFragment extends Fragment {
     Context mContext;
     BaseApiService mApiService;
     ProgressDialog loading;
-    public TextView tvName,tvAddress,tvIdentityNo,tvCity,tvEmail,tvPhone,tvLogout;
+    public TextView tvName,tvAddress,tvCity,tvEmail,tvPhone,tvLogout;
+    public RatingBar ratingBar;
     public ImageView imgPicture;
     String pictureImageURL;
     private ViewSwitcher cardViewSwitcher;
@@ -143,10 +148,10 @@ public class ProfileFragment extends Fragment {
         tvAddress = (TextView)view.findViewById(R.id.tvAddress);
         tvCity = (TextView)view.findViewById(R.id.tvCity);
         tvEmail = (TextView)view.findViewById(R.id.tvEmail);
-        tvIdentityNo = (TextView)view.findViewById(R.id.tvIdentityNo);
+
         tvPhone = (TextView)view.findViewById(R.id.tvPhone);
         imgPicture = (ImageView)view.findViewById(R.id.imgPicture);
-
+        ratingBar = (RatingBar) view.findViewById(R.id.ratingBar);
         //viewswitcher
         cardViewSwitcher = (ViewSwitcher)view.findViewById(R.id.cardViewSwitcher);
         //animation untuk viewswitcher
@@ -378,6 +383,7 @@ public class ProfileFragment extends Fragment {
                     try {
                         JSONObject jsonRESULTS = new JSONObject(response.body().string());
                         if (jsonRESULTS.getString("error").equals("false")){
+
                             String name = jsonRESULTS.getJSONObject("userdata").getString("name");
                             String phone = jsonRESULTS.getJSONObject("userdata").getString("phone");
                             String address = jsonRESULTS.getJSONObject("userdata").getString("address");
@@ -385,7 +391,13 @@ public class ProfileFragment extends Fragment {
 //                            String identityno = jsonRESULTS.getJSONObject("userdata").getString("identity_no");
                             String email = jsonRESULTS.getJSONObject("userdata").getString("email");
                             String picture = jsonRESULTS.getJSONObject("userdata").getString("picture");
+                            String rate = jsonRESULTS.getJSONObject("userdata").getString("rate");
 
+                            Float float_rate = Float.parseFloat(rate);
+                            ratingBar.setRating(float_rate);
+                            ratingBar.setEnabled(false);
+                            LayerDrawable stars = (LayerDrawable) ratingBar.getProgressDrawable();
+                            stars.getDrawable(2).setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_ATOP);
                             if(picture.equals("")){
                                 picture = "tmp_logo.png";
                             }
