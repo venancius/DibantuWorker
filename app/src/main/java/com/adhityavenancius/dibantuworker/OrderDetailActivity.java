@@ -100,8 +100,6 @@ public class OrderDetailActivity extends AppCompatActivity implements View.OnCli
     }
 
 
-
-
     private void requestOrderDetail(){
         mApiService.getJobsDetail(id_jobs,role)
                 .enqueue(new Callback<ResponseBody>() {

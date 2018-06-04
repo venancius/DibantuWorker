@@ -65,31 +65,31 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+//
         session = new SessionManager(getApplicationContext());
-        boolean loginstatus = session.checkLogin();
-        if(loginstatus==true){
-            finish();
-        }
-
+//        boolean loginstatus = session.checkLogin();
+//        if(loginstatus==true){
+//            finish();
+//        }
+//
         mContext = this;
         mApiService = UtilsApi.getAPIService(); // meng-init yang ada di package apihelper
         initComponents();
         initSpinnerCity();
         initSpinnerCategory();
-//        spinnerCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                String selectedName = parent.getItemAtPosition(position).toString();
-////                requestDetailDosen(selectedName);
-////                Toast.makeText(mContext,selectedName, Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
+////        spinnerCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+////            @Override
+////            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+////                String selectedName = parent.getItemAtPosition(position).toString();
+//////                requestDetailDosen(selectedName);
+//////                Toast.makeText(mContext,selectedName, Toast.LENGTH_SHORT).show();
+////            }
+////
+////            @Override
+////            public void onNothingSelected(AdapterView<?> parent) {
+////
+////            }
+////        });
 
     }
 
@@ -129,7 +129,7 @@ public class LoginActivity extends AppCompatActivity {
 
         spinnerCity = (Spinner) findViewById(R.id.spinnerCity);
         spinnerCategory = (Spinner) findViewById(R.id.spinnerCategory);
-        
+
         etEmail = (EditText) loginSwitcher.findViewById(R.id.etEmail);
         etPassword = (EditText) loginSwitcher.findViewById(R.id.etPassword);
 

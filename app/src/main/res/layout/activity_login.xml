@@ -56,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
-                
+
                 android:inputType="textPassword"
                 android:padding="8dp"
 
@@ -101,7 +101,7 @@
             android:layout_height="wrap_content"
 
             android:hint="Name"
-            
+
             />
 
         <ImageView
@@ -122,7 +122,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Phone"
-            
+
             />
 
         <ImageView
@@ -143,7 +143,7 @@
             android:layout_height="wrap_content"
             android:hint="Email"
             android:layout_toRightOf="@id/imgEmail"
-            
+
             />
 
         <ImageView
@@ -190,7 +190,7 @@
         <EditText
             android:layout_below="@id/imgCategory"
             android:layout_toRightOf="@id/imgAddress"
-            
+
             android:id="@+id/etAddress"
             android:inputType="textPostalAddress"
             android:fontFamily="sans-serif"
@@ -210,11 +210,11 @@
         <EditText
             android:layout_toRightOf="@id/imgPassword"
             android:layout_below="@id/imgAddress"
-            
+
             android:id="@+id/etPassword1"
             android:inputType="textPassword"
             android:hint="Password"
-            
+
             android:fontFamily="sans-serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
